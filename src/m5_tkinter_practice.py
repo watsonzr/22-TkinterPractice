@@ -59,7 +59,7 @@ def main():
     hello_goodbye_button.grid()
 
     # ------------------------------------------------------------------
-    # TODO: 7.
+    # DONE: 7.
     #    -- Put a second Entry on the Frame.
     #    -- Put a third Button on the frame.
     #    -- Make this new Button respond to a button-press as follows:
@@ -82,8 +82,15 @@ def main():
     #      n = int(s)
     ####################################################################
 
+    my_entry_box2 = ttk.Entry(frame1)
+    my_entry_box2.grid()
+
+    print_n_times_button = ttk.Button(frame1, text='Print')
+    print_n_times_button['command'] = lambda: print_many_times(my_entry_box, my_entry_box2)
+    print_n_times_button.grid()
+
     # ------------------------------------------------------------------
-    # TODO: 8. As time permits, do other interesting GUI things!
+    # DONE: 8. As time permits, do other interesting GUI things!
     # ------------------------------------------------------------------
 
     root.mainloop()
@@ -99,6 +106,14 @@ def hello_goodbye(entry_box):
         print_hello()
     else:
         print('Goodbye')
+
+
+def print_many_times(entry_box_1, entry_box_2):
+    contents_of_entry_box_1 = entry_box_1.get()
+    contents_of_entry_box_2 = entry_box_2.get()
+    n = int(contents_of_entry_box_2)
+    for i in range(n):
+        print(contents_of_entry_box_1)
 
 
 # ----------------------------------------------------------------------
